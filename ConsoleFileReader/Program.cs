@@ -1,11 +1,31 @@
-﻿Console.WriteLine("Hello, please provide the path of the file:");
+﻿using System;
+using System.IO;
 
-string? pathLocation = Console.ReadLine();
-
-while (string.IsNullOrWhiteSpace(pathLocation))
+class Program
 {
-    Console.WriteLine("Invalid input. Please enter a non-empty file path:");
-    pathLocation = Console.ReadLine();
+    static void Main()
+    {
+        string? path;
+        while (true)
+        {
+            Console.WriteLine("Hello, please provide the path of the file:");
+            string? pathLocation = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(pathLocation))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-empty file path:");
+                continue;
+            }
+            if (!File.Exists(pathLocation))
+            {
+                Console.WriteLine("File not found. Please enter a valid existing file path.");
+                continue;
+            }
+            path = pathLocation;
+            Console.WriteLine($"The given path location exists: {path}");
+            break;
+        }
+        Console.WriteLine(path);
+        string contents = File.ReadAllText(path);
+        Console.WriteLine(contents);
+    }
 }
-
-Console.WriteLine($"The given path location is: {pathLocation}");
