@@ -7,8 +7,8 @@ class Program
     static void Main()
     {
         string path = PathValidator.GetPath();
-        ReadFile.FileReader(path);
-        LineCounter.DisplayFileLines(path);
+        ReadFile.ReadContents(path);
+        LineCounter.CountLines(path);
     }
 }
 ///Users/renas/Desktop/Ebri ProjectBeheer/meower.txt
