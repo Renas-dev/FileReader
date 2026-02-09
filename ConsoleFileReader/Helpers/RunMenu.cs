@@ -7,7 +7,7 @@ namespace ConsoleFileReaders.Helpers
     {
         public static void PrintMenu()
         {
-            Console.WriteLine("Please choose 1 to print all the text, or 2 to count all the lines or q to exit");
+            Console.WriteLine("Please choose 1 to print all the text, or 2 to count all the lines or, 3 to find if a word is present in the file.  q to exit");
         }
         public static void StartMenu()
         {
@@ -27,6 +27,10 @@ namespace ConsoleFileReaders.Helpers
                 {
                     LineCounter.CountLines(path);
 
+                }
+                else if (input == "3")
+                {
+                    WordSearcher.FindMatchingLines(path);
                 }
                 else if (input == "q")
                 {
