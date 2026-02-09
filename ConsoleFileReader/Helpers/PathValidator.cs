@@ -26,28 +26,4 @@ namespace ConsoleFileReaders.Helpers
             }
         }
     }
-
-    class ReadFile
-    {
-        public static void FileReader(string path)
-        {
-            string contents = File.ReadAllText(path);
-            Console.WriteLine(contents);
-        }
-    }
-    class LineCounter
-    {
-        public static void DisplayFileLines(string path)
-        {
-            var lineCount = 0;
-            using (var reader = File.OpenText(path))
-            {
-                while (reader.ReadLine() != null)
-                {
-                    lineCount++;
-                }
-            }
-            Console.WriteLine($"This file has: {lineCount} Lines");
-        }
-    }
 }
