@@ -17,7 +17,7 @@ namespace ConsoleFileReaders.Helpers
             }
             foreach (string line in File.ReadLines(path))
             {
-                if (line.Contains(toSearch))
+                if (line.Contains(toSearch, StringComparison.OrdinalIgnoreCase))
                 {
                     Console.WriteLine(line);
                     foundAny = true;
