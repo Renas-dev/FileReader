@@ -11,6 +11,7 @@ namespace ConsoleFileReaders.Helpers
             Console.WriteLine("[1] Print document");
             Console.WriteLine("[2] Count lines");
             Console.WriteLine("[3] Search for a word");
+            Console.WriteLine("[4] Show file metadata");
             Console.WriteLine("[Q] Quit");
             Console.WriteLine();
         }
@@ -46,6 +47,11 @@ namespace ConsoleFileReaders.Helpers
                 else if (input == "3")
                 {
                     WordSearcher.FindMatchingLines(path);
+                    ContinueMenu();
+                }
+                else if (input == "4")
+                {
+                    FileMetadataReader.PrintMetadata(path);
                     ContinueMenu();
                 }
                 else if (input == "q")

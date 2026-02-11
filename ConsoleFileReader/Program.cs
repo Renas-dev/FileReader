@@ -9,4 +9,3 @@ class Program
         InitializeMenu.StartMenu();
     }
 }
-///Users/renas/Desktop/Ebri ProjectBeheer/meower.txt
