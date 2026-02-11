@@ -14,6 +14,12 @@ namespace ConsoleFileReaders.Helpers
             Console.WriteLine("[Q] Quit");
             Console.WriteLine();
         }
+
+        public static void ContinueMenu()
+        {
+            Console.WriteLine("Press Enter to continue...");
+            Console.ReadLine();
+        }
         public static void StartMenu()
         {
             string path = PathValidator.GetPath();
@@ -28,19 +34,19 @@ namespace ConsoleFileReaders.Helpers
                 {
                     ReadFile.ReadContents(path);
 
-                    System.Threading.Thread.Sleep(5000);
+                    ContinueMenu();
 
                 }
                 else if (input == "2")
                 {
                     LineCounter.CountLines(path);
-                    System.Threading.Thread.Sleep(5000);
+                    ContinueMenu();
 
                 }
                 else if (input == "3")
                 {
                     WordSearcher.FindMatchingLines(path);
-                    System.Threading.Thread.Sleep(5000);
+                    ContinueMenu();
                 }
                 else if (input == "q")
                 {
