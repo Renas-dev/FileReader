@@ -7,7 +7,18 @@ namespace ConsoleFileReaders.Helpers
     {
         public static void PrintMenu()
         {
-            Console.WriteLine("Please choose 1 to print all the text, or 2 to count all the lines or q to exit");
+            Console.WriteLine("Choose an option:");
+            Console.WriteLine("[1] Print document");
+            Console.WriteLine("[2] Count lines");
+            Console.WriteLine("[3] Search for a word");
+            Console.WriteLine("[Q] Quit");
+            Console.WriteLine();
+        }
+
+        public static void ContinueMenu()
+        {
+            Console.WriteLine("Press Enter to continue...");
+            Console.ReadLine();
         }
         public static void StartMenu()
         {
@@ -15,6 +26,7 @@ namespace ConsoleFileReaders.Helpers
 
             while (true)
             {
+                Console.WriteLine();
                 PrintMenu();
                 string? input = Console.ReadLine();
                 input = input?.Trim().ToLower();
@@ -22,11 +34,19 @@ namespace ConsoleFileReaders.Helpers
                 {
                     ReadFile.ReadContents(path);
 
+                    ContinueMenu();
+
                 }
                 else if (input == "2")
                 {
                     LineCounter.CountLines(path);
+                    ContinueMenu();
 
+                }
+                else if (input == "3")
+                {
+                    WordSearcher.FindMatchingLines(path);
+                    ContinueMenu();
                 }
                 else if (input == "q")
                 {
@@ -34,8 +54,7 @@ namespace ConsoleFileReaders.Helpers
                 }
                 else
                 {
-                    Console.WriteLine("Invalid choice. Please enter 1, 2, or q.");
-
+                    Console.WriteLine("Invalid option. Please enter 1, 2, 3, or Q.");
                 }
             }
         }
