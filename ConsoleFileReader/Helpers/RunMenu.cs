@@ -7,7 +7,11 @@ namespace ConsoleFileReaders.Helpers
     {
         public static void PrintMenu()
         {
-            Console.WriteLine("Please choose 1 to print all the text, or 2 to count all the lines or, 3 to find if a word is present in the file.  q to exit");
+            Console.WriteLine("Please choose what u want to do:");
+            Console.WriteLine("Type 1 to print the entire document text out");
+            Console.WriteLine("Type 2 to Count all the lines present in the document");
+            Console.WriteLine("Type 3 to search if a word is present in the document");
+            Console.WriteLine("type q to quit the program.");
         }
         public static void StartMenu()
         {
