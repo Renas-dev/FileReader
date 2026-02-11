@@ -6,10 +6,11 @@ namespace ConsoleFileReaders.Helpers
     class WordSearcher
     {
         public static void FindMatchingLines(string path)
-        {
+        {   
+            var lineCount = 0;
+            var lineNumber = 0;
             Console.WriteLine("Give a word to lookup");
             string toSearch = Console.ReadLine()?.Trim() ?? string.Empty;
-            bool foundAny = false;
             if (string.IsNullOrWhiteSpace(toSearch))
             {
                 Console.WriteLine("Please type a proper word in");
@@ -17,16 +18,18 @@ namespace ConsoleFileReaders.Helpers
             }
             foreach (string line in File.ReadLines(path))
             {
+                lineNumber ++;
                 if (line.Contains(toSearch, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine(line);
-                    foundAny = true;
+                    lineCount ++;
+                Console.WriteLine($"Line {lineNumber}: {line}");
                 }
             }
-            if (foundAny == false)
+            if (lineCount == 0)
             {
                 Console.WriteLine($"word {toSearch} is not present in file");
             }
+            Console.WriteLine($"Total amount of times found: {lineCount}");
         }
     }
 }
