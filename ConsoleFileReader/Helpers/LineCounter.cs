@@ -16,6 +16,7 @@ namespace ConsoleFileReaders.Helpers
                 }
             }
             Console.WriteLine($"This file has: {lineCount} Lines");
+            Console.WriteLine();
         }
     }
 }

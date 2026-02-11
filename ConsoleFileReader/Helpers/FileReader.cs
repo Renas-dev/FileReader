@@ -9,6 +9,7 @@ namespace ConsoleFileReaders.Helpers
         {
             string contents = File.ReadAllText(path);
             Console.WriteLine(contents);
+            Console.WriteLine();
         }
     }
 }

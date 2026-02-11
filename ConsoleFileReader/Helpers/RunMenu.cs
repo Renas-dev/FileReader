@@ -7,11 +7,12 @@ namespace ConsoleFileReaders.Helpers
     {
         public static void PrintMenu()
         {
-            Console.WriteLine("Please choose what u want to do:");
-            Console.WriteLine("Type 1 to print the entire document text out");
-            Console.WriteLine("Type 2 to Count all the lines present in the document");
-            Console.WriteLine("Type 3 to search if a word is present in the document");
-            Console.WriteLine("type q to quit the program.");
+            Console.WriteLine("Choose an option:");
+            Console.WriteLine("[1] Print document");
+            Console.WriteLine("[2] Count lines");
+            Console.WriteLine("[3] Search for a word");
+            Console.WriteLine("[Q] Quit");
+            Console.WriteLine();
         }
         public static void StartMenu()
         {
@@ -19,6 +20,7 @@ namespace ConsoleFileReaders.Helpers
 
             while (true)
             {
+                Console.WriteLine();
                 PrintMenu();
                 string? input = Console.ReadLine();
                 input = input?.Trim().ToLower();
@@ -26,15 +28,19 @@ namespace ConsoleFileReaders.Helpers
                 {
                     ReadFile.ReadContents(path);
 
+                    System.Threading.Thread.Sleep(5000);
+
                 }
                 else if (input == "2")
                 {
                     LineCounter.CountLines(path);
+                    System.Threading.Thread.Sleep(5000);
 
                 }
                 else if (input == "3")
                 {
                     WordSearcher.FindMatchingLines(path);
+                    System.Threading.Thread.Sleep(5000);
                 }
                 else if (input == "q")
                 {
@@ -42,8 +48,7 @@ namespace ConsoleFileReaders.Helpers
                 }
                 else
                 {
-                    Console.WriteLine("Invalid choice. Please enter 1, 2, or q.");
-
+                    Console.WriteLine("Invalid option. Please enter 1, 2, 3, or Q.");
                 }
             }
         }
